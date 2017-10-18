@@ -2,22 +2,23 @@ package br.uniriotec.ppgi.supersensemapping.sampler;
 
 
 /**
- * Class to calculate the size of a sample for a propbabilistic analisys.
+ * Utilitary class to calculate the sample size for a propbabilistic analisys.
  * 
- * @author felipe
+ * @author Felipe Leao
  *
  */
 public class SampleSizeCalculator {
 	
 	
 	/**
-	 * Calculates the size of a sample based for a infinet population (greater than 50.000). 
+	 * Calculates the size of a sample based on an infinit population (greater than 50.000). 
 	 * The calculus is based on a confidence Z-level (from the Cumulative Normal Probability 
-	 * Table), the confidence interval expressed in decimal form (e.g. 0.04 for 4%). This method
-	 * must be used when a likelly choice of the population is not previously known. Usually 
-	 * sample sizes are calculate onsiderin5 90%, 95% or 99% of confidence levels, which reflects 
-	 * into 1.645, 1.96 and 2.58 Z-values, respectivelly. The result is a double and must be 
-	 * rounded.
+	 * Table) and the confidence interval expressed in decimal form (e.g. 0.04 for 4%). This method
+	 * must be used when a likelly choice of the population is not previously known. 
+	 * 
+	 * TIPS: Usually sample sizes are calculate considering 90%, 95% or 99% of confidence levels, 
+	 * which reflects into 1.645, 1.96 and 2.58 Z-values, respectivelly. The result is a double 
+	 * and must be rounded.
 	 * 
 	 * @param zValue - the confidence level Z-score value
 	 * @param confInterval - the confindence interval, a.k.a Margin of error
@@ -29,13 +30,14 @@ public class SampleSizeCalculator {
 	
 	
 	/**
-	 * Calculates the size of a sample based for a infinet population (greater than 50.000). 
+	 * Calculates the size of a sample based on an infinit population (greater than 50.000). 
 	 * The calculus is based on a confidence Z-level (from the Cumulative Normal Probability 
 	 * Table), the confidence interval expressed in decimal form (e.g. 0.04 for 4%) and known
-	 * percentage of a population picking a certain choice (also expressed as decimal). Usually 
-	 * sample sizes are calculate onsiderin5 90%, 95% or 99% of confidence levels, which reflects 
-	 * into 1.645, 1.96 and 2.58 Z-values, respectivelly. The result is a double and must be 
-	 * rounded.
+	 * percentage of a population picking a certain choice (also expressed as decimal).  
+	 * 
+	 * TIPS: Usually sample sizes are calculate considering 90%, 95% or 99% of confidence levels, 
+	 * which reflects into 1.645, 1.96 and 2.58 Z-values, respectivelly. The result is a double 
+	 * and must be rounded.
 	 * 
 	 * @param zValue - the confidence level Z-score value
 	 * @param confInterval - the confindence interval, a.k.a Margin of error
@@ -43,11 +45,7 @@ public class SampleSizeCalculator {
 	 * @return the sample size needed for a infinite population.
 	 */
 	public static double calculateSampleSize(double zValue, double confInterval, double knownPercentage){
-		/*
-		 * Thats a second example of a comment block
-		 */
 		double sampleSize = (Math.pow(zValue,2) * knownPercentage * (1 - knownPercentage)) / Math.pow(confInterval,2);
-		
 		return sampleSize;
 	}
 	
